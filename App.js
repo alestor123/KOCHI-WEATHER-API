@@ -11,6 +11,18 @@ console.log('Please enter env')
 process.exit(1)
 }
 app.get('/', (req, res) => {
+axios.get(url)
+  .then(function (response) {
+    // handle success
+    console.log(response.data.weather[0].main);
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+  .then(function () {
+    // always executed
+  });
 res.send('<h1>Hlo</h1>') 
 });
 
