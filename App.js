@@ -3,8 +3,10 @@ var express =  require('express'),
     axios = require('axios');
     require('dotenv').config()
  var port = process.env.PORT || 3000,
-key = process.env.KEY;
-if(!key){
+key = process.env.KEY,
+city = process.env.CITY,
+url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`
+if(!process.env){
 console.log('Please enter env')
 process.exit(1)
 }
