@@ -4,6 +4,10 @@ var express =  require('express'),
     require('dotenv').config()
  var port = process.env.PORT || 3000,
 key = process.env.KEY;
+if(!key){
+console.log('Please enter env')
+process.exit(1)
+}
 app.get('/', (req, res) => {
 res.send('<h1>Hlo</h1>') 
 });
