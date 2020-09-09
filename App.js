@@ -14,8 +14,13 @@ app.get('/', (req, res) => {
 axios.get(url)
   .then(function (response) {
     // handle success
-    console.log(response.data.weather[0].main);
-  })
+    console.log(response.data.weather);
+    res.json({
+        City:city,
+        Weather:response.data.weather[0].main,
+        Description:response.data.weather[0].description
+    })
+})
   .catch(function (error) {
     // handle error
     console.log(error);
@@ -23,7 +28,6 @@ axios.get(url)
   .then(function () {
     // always executed
   });
-res.send('<h1>Hlo</h1>') 
 });
 
 
