@@ -6,6 +6,10 @@ var express =  require('express'),
  var port = process.env.PORT || 3000,
 key = process.env.KEY,
 city = process.env.CITY,
+limiter = rateLimit({
+  windowMs: process.env.LIMTIM * 60 * 1000, 
+  max: 15 // limit each IP to 100 requests per windowMs
+}),
 url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`
 if(!process.env){
 console.log('Please enter env')
